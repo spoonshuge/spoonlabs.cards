@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+header img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     font-family: Arial, sans-serif;
     color: #333333;
