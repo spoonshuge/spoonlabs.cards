@@ -10,28 +10,32 @@ body {
     color: #333333;
     background-color: #F5F5F5;
     line-height: 1.6;
-    padding: 0 1rem; /* Small padding for mobile */
+    padding: 0 1rem;
 }
 
 /* Header Styles */
 header {
     background-color: #004225;
     color: #F5F5F5;
-    padding: 1rem 0;
-    text-align: center;
+    padding: 1rem;
     position: sticky;
     top: 0;
+}
+
+.header-content {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Logo Styling */
 header img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
+    height: 60px; /* Adjust this value for a larger logo */
 }
 
+/* Navigation Styling */
 nav {
     display: flex;
     gap: 1.5rem;
@@ -100,12 +104,18 @@ footer {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .card-container {
+    .header-content {
         flex-direction: column;
+        align-items: center;
     }
-    
+
     nav {
         flex-direction: column;
         gap: 0.75rem;
+    }
+
+    header img {
+        height: 50px;
+        margin-bottom: 1rem;
     }
 }
