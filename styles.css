@@ -10,59 +10,79 @@ body {
     color: #333333;
     background-color: #F5F5F5;
     line-height: 1.6;
+    padding: 0 1rem; /* Small padding for mobile */
 }
 
 /* Header Styles */
 header {
     background-color: #004225;
     color: #F5F5F5;
-    padding: 1rem;
+    padding: 1.5rem 0; /* Increased padding for balance */
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 header h1 {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Space out links */
 }
 
 nav a {
     color: #F5F5F5;
-    margin: 0 1rem;
     text-decoration: none;
+    font-weight: bold;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #990000; /* Change color on hover for clarity */
 }
 
 /* Main Content */
 main {
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
 section h2 {
     color: #990000;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* Card Section */
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
+    justify-content: center;
     margin-top: 1rem;
 }
 
 .card {
     background-color: #FFFFFF;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     padding: 1rem;
-    width: calc(33% - 2rem);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 2rem);
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
 }
 
 .card h3 {
     color: #333333;
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
 /* Footer Styles */
@@ -72,4 +92,17 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column; /* Stack cards on smaller screens */
+    }
+    
+    nav {
+        flex-direction: column; /* Stack links on smaller screens */
+        gap: 0.75rem;
+    }
 }
