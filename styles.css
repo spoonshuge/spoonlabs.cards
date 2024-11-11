@@ -5,11 +5,17 @@
     box-sizing: border-box;
 }
 
+/* Body Styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     color: #333333;
     background-color: #F5F5F5;
     line-height: 1.6;
+    padding-top: 20vh; /* Offset to avoid overlap with the fixed header */
     padding: 0 1rem;
 }
 
@@ -18,8 +24,12 @@ header {
     background-color: #004225;
     color: #F5F5F5;
     padding: 1rem;
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
+    max-height: 20vh; /* Limit header to 20% of the viewport height */
+    overflow: hidden; /* Prevent overflow if content exceeds max-height */
+    z-index: 1000; /* Keep header above other elements */
 }
 
 .header-content {
@@ -32,7 +42,7 @@ header {
 
 /* Logo Styling */
 header img {
-    height: 60px; /* Adjust this value for a larger logo */
+    height: 60px; /* Adjust for desired logo size */
 }
 
 /* Navigation Styling */
@@ -53,6 +63,8 @@ nav a:hover {
 
 /* Main Content */
 main {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 2rem 0;
 }
 
@@ -86,6 +98,12 @@ section h2 {
     transform: translateY(-5px);
 }
 
+.card img.card-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
 .card h3 {
     color: #333333;
     margin-bottom: 0.5rem;
@@ -102,6 +120,16 @@ footer {
     font-size: 0.9rem;
 }
 
+footer a {
+    color: #F5F5F5;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #990000;
+    text-decoration: underline;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .header-content {
@@ -115,7 +143,12 @@ footer {
     }
 
     header img {
-        height: 50px;
+        height: auto;
+        width: 80%;
         margin-bottom: 1rem;
+    }
+
+    .card {
+        width: 90%; /* Adjust for smaller screens */
     }
 }
