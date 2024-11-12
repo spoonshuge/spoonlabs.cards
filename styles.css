@@ -45,7 +45,7 @@ header {
 
 /* Logo Styling */
 header img {
-    height: 100%; /* Make logo as tall as the header */
+    height: 500%; /* Make logo as tall as the header */
     max-height: 20vh; /* Ensure logo does not exceed 20% of viewport height */
     width: auto; /* Keep aspect ratio */
 }
