@@ -1,23 +1,22 @@
-const appId = 'DanielRo-spoonlab-SBX-989618c6b-34e2a805'; // Replace with your eBay App ID
-const ebayUrl = `https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SECURITY-APPNAME=${appId}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&sellerId=spoonlabs&outputSelector=PictureURLSuperSize`;
+// Sample inventory data (to be replaced with your spreadsheet data)
+const inventory = [
+  { image: 'card1.jpg', description: 'Card 1 Description', price: '$10' },
+  { image: 'card2.jpg', description: 'Card 2 Description', price: '$20' },
+  { image: 'card3.jpg', description: 'Card 3 Description', price: '$15' },
+];
 
-fetch(ebayUrl)
-  .then(response => response.json())
-  .then(data => {
-    const items = data.findItemsAdvancedResponse[0].searchResult[0].item;
-    const listingsDiv = document.getElementById('ebay-listings');
+// Dynamically populate cards
+const cardsContainer = document.getElementById('cards');
 
-    items.forEach(item => {
-      const listing = document.createElement('div');
-      listing.className = 'listing';
+inventory.forEach(item => {
+  const card = document.createElement('div');
+  card.className = 'card';
 
-      listing.innerHTML = `
-        <img src="${item.galleryURL[0]}" alt="${item.title[0]}">
-        <p>${item.title[0]}</p>
-        <p>Price: ${item.sellingStatus[0].currentPrice[0].__value__} ${item.sellingStatus[0].currentPrice[0]['@currencyId']}</p>
-      `;
+  card.innerHTML = `
+    <img src="${item.image}" alt="${item.description}">
+    <div class="description">${item.description}</div>
+    <div class="price">${item.price}</div>
+  `;
 
-      listingsDiv.appendChild(listing);
-    });
-  })
-  .catch(error => console.error('Error fetching eBay listings:', error));
+  cardsContainer.appendChild(card);
+});
