@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spoonLabs.cards</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baseball Cards Inventory</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <img src="images/spoonLabsHeader.png" alt="spoonLabs Logo">
-            <nav>
-                <a href="#about">About</a>
-                <a href="#cards">Cards</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+  <div class="container">
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+      <div class="logo top-logo">
+        <img src="logo-top.png" alt="Top Logo">
+      </div>
+      <nav class="links">
+        <a href="https://ebay.com" target="_blank">eBay</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="mailto:your-email@example.com">Email</a>
+      </nav>
+      <div class="logo bottom-logo">
+        <img src="logo-bottom.png" alt="Bottom Logo">
+      </div>
+    </div>
 
-    <main>
-        <section id="about">
-            <h2>About spoonLabs</h2>
-            <p>Welcome to spoonLabs! We specialize in trading cards, offering a curated collection for collectors and enthusiasts. Discover our latest finds and stay updated on trends in the trading card world.</p>
-        </section>
-
-        <section id="cards">
-            <h2>Featured Cards</h2>
-            <div class="card-container">
-                <div class="card">
-                    <img src="/images/card1.jpg" alt="Card Image 1" class="card-img">
-                    <h3>Card Title 1</h3>
-                    <p>Description of the card. A brief note about its uniqueness or value.</p>
-                </div>
-                <div class="card">
-                    <img src="/images/card2.jpg" alt="Card Image 2" class="card-img">
-                    <h3>Card Title 2</h3>
-                    <p>Description of the card. A brief note about its uniqueness or value.</p>
-                </div>
-                <!-- Add more card divs as needed -->
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 spoonLabs | <a href="mailto:contact@spoonlabs.cards">Contact Us</a></p>
-    </footer>
+    <!-- Main Content -->
+    <div class="inventory">
+      <h1>Current Inventory</h1>
+      <div id="cards" class="cards-container">
+        <!-- Cards will be dynamically inserted here -->
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
