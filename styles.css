@@ -40,14 +40,15 @@ body {
 }
 
 .links a {
-  color: white;
+  color: #00ff00; /* Bright green */
   text-decoration: none;
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 36px; /* Doubled the original font size */
+  font-weight: bold; /* Optional: makes the text bolder */
 }
 
 .links a:hover {
-  color: #ff9800;
+  color: #00cc00; /* Slightly darker green for hover effect */
 }
 
 .inventory {
