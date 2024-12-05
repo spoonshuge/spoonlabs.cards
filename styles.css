@@ -1,159 +1,89 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styles */
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    color: #333333;
-    background-color: #F5F5F5;
-    line-height: 1.6;
-    padding-top: 20vh; /* Offset to avoid overlap with the fixed header */
-    padding: 0 1rem;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
 }
 
-/* Header Styles */
-header {
-    background-color: #004225;
-    color: #F5F5F5;
-    padding: 1rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    max-height: 20vh; /* Limit header to 20% of the viewport height */
-    overflow: hidden; /* Prevent overflow if content exceeds max-height */
-    z-index: 1000; /* Keep header above other elements */
-    display: flex;
-    align-items: center; /* Center the logo and nav vertically */
-    justify-content: center;
+.container {
+  display: flex;
+  height: 100vh;
 }
 
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    width: 100%;
+.sidebar {
+  width: 20%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-/* Logo Styling */
-header img {
-    height: 500%; /* Make logo as tall as the header */
-    max-height: 20vh; /* Ensure logo does not exceed 20% of viewport height */
-    width: auto; /* Keep aspect ratio */
+.sidebar .logo img {
+  max-width: 100%;
+  margin-bottom: 20px;
 }
 
-/* Navigation Styling */
-nav {
-    display: flex;
-    gap: 1.5rem;
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-nav a {
-    color: #F5F5F5;
-    text-decoration: none;
-    font-weight: bold;
+.links a {
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 18px;
 }
 
-nav a:hover {
-    color: #990000;
+.links a:hover {
+  color: #ff9800;
 }
 
-/* Main Content */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 0;
+.inventory {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
 }
 
-section h2 {
-    color: #990000;
-    margin-bottom: 1rem;
-    text-align: center;
+.inventory h1 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Card Section */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-top: 1rem;
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .card {
-    background-color: #FFFFFF;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    width: calc(100% - 2rem);
-    max-width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.card img.card-img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
+.card .description {
+  padding: 10px;
 }
 
-.card h3 {
-    color: #333333;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #333333;
-    color: #F5F5F5;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-}
-
-footer a {
-    color: #F5F5F5;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #990000;
-    text-decoration: underline;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    header img {
-        height: auto;
-        width: 80%;
-        margin-bottom: 1rem;
-    }
-
-    .card {
-        width: 90%; /* Adjust for smaller screens */
-    }
+.card .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #27ae60;
+  margin-bottom: 10px;
 }
