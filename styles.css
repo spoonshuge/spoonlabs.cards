@@ -3,11 +3,14 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Prevents the whole page from scrolling */
 }
 
 .container {
   display: flex;
-  height: 100vh;
+  width: 100%;
 }
 
 .sidebar {
@@ -19,6 +22,10 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  position: fixed; /* Keeps the sidebar locked in place */
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .sidebar .logo img {
@@ -44,9 +51,13 @@ body {
 }
 
 .inventory {
-  flex: 1;
+  margin-left: 20%; /* Leaves space for the sidebar */
+  width: 80%;
   padding: 20px;
   background-color: white;
+  overflow-y: auto; /* Makes the inventory scrollable */
+  height: 100vh;
+  box-sizing: border-box; /* Ensures padding doesn't add to the height */
 }
 
 .inventory h1 {
