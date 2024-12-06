@@ -1,6 +1,6 @@
 // Replace with your published CSV link from the Google Sheet
 // Example: const googleSheetCSVUrl = 'https://docs.google.com/spreadsheets/d/xxxxxxxxx/pub?output=csv';
-const googleSheetCSVUrl = 'YOUR_PUBLISHED_CSV_LINK';
+const googleSheetCSVUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRFTvzmV1Uq23UTFobTY_Nq0NfQryWsXcKRAw5BB5E6gmJXeaJc8-VcQJ0bFcta2svQCpfx8-AuSt2N/pub?gid=0&single=true&output=csv';
 
 const cardsContainer = document.getElementById('cards');
 
