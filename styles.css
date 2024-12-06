@@ -3,39 +3,43 @@ body {
   margin: 0;
   background-color: #f8f8f8;
   color: #333;
+  overflow-x: hidden;
+}
+
+/* Large Logo Overlay */
+.logo-overlay {
+  position: absolute;
+  top: 10px;  /* Adjust as desired */
+  left: 10px; /* Adjust as desired */
+  z-index: 2000; /* Above the nav which has 1000 */
+}
+
+.logo-overlay img {
+  height: 180px; /* 3x the previous ~60px size */
+  width: auto;
+  object-fit: contain;
 }
 
 /* Top Navigation */
 .top-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* since logo is separate now, center the links */
   background: linear-gradient(to right, #222, #444);
   padding: 10px 20px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1000; /* Below the logo overlay */
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo-img {
-  height: 180px; 
-  width: auto;
-  object-fit: contain;
-}
-
 .nav-links a {
-  color: #00ff00; 
+  color: #00ff00;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 20px; 
+  font-size: 20px;
   font-weight: bold;
   transition: color 0.3s;
 }
@@ -44,9 +48,9 @@ body {
   color: #00cc00;
 }
 
-/* Adjust container and inventory to account for the fixed header */
+/* Container and Inventory */
 .container {
-  margin-top: 100px; /* space for the fixed header */
+  margin-top: 100px; /* Space for the fixed header */
   display: flex;
   justify-content: center;
   width: 100%;
@@ -54,7 +58,7 @@ body {
 
 .inventory {
   width: 100%;
-  max-width: 1200px; 
+  max-width: 1200px;
   background-color: white;
   padding: 20px;
   box-sizing: border-box;
@@ -113,15 +117,11 @@ body {
   margin-bottom: 15px;
 }
 
-/* Media Queries for Mobile */
+/* Mobile Responsive */
 @media (max-width: 600px) {
   .nav-links a {
     font-size: 16px;
     margin: 0 10px;
-  }
-
-  .logo-img {
-    height: 50px;
   }
 
   .inventory {
@@ -140,5 +140,9 @@ body {
 
   .inventory h1 {
     font-size: 28px;
+  }
+
+  .logo-overlay img {
+    height: 120px; /* Slightly smaller on mobile if desired */
   }
 }

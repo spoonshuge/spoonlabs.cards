@@ -1,6 +1,5 @@
 // Replace with your published CSV link from the Google Sheet
-// Example: const googleSheetCSVUrl = 'https://docs.google.com/spreadsheets/d/xxxxxxxxx/pub?output=csv';
-const googleSheetCSVUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRFTvzmV1Uq23UTFobTY_Nq0NfQryWsXcKRAw5BB5E6gmJXeaJc8-VcQJ0bFcta2svQCpfx8-AuSt2N/pub?gid=0&single=true&output=csv';
+const googleSheetCSVUrl = 'YOUR_PUBLIShttps://docs.google.com/spreadsheets/d/e/2PACX-1vRFTvzmV1Uq23UTFobTY_Nq0NfQryWsXcKRAw5BB5E6gmJXeaJc8-VcQJ0bFcta2svQCpfx8-AuSt2N/pub?gid=0&single=true&output=csv';
 
 const cardsContainer = document.getElementById('cards');
 
@@ -16,7 +15,7 @@ Papa.parse(googleSheetCSVUrl, {
 function populateCards(inventory) {
   cardsContainer.innerHTML = '';
   inventory.forEach(item => {
-    // Expecting columns: "Card Title", "Price", "Link", "Image"
+    // Assuming columns: "Card Title", "Price", "Link", "Image"
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
