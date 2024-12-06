@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baseball Cards Inventory</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Cards Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Papa Parse for CSV parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.1/papaparse.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <!-- Left Sidebar -->
-    <div class="sidebar">
-      <div class="logo top-logo">
-        <img src="./images/spoonLabs__cool.png" alt="Top Logo">
-      </div>
-      <nav class="links">
-        <a href="https://www.ebay.com/sch/i.html?item=135416477458&rt=nc&_trksid=p4429486.m3561.l161211&_ssn=spoonlabs" target="_blank">eBay</a>
-        <a href="https://www.instagram.com/spoonlabs/" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@spoonlabs" target="_blank">TikTok</a>
-        <a href="https://spoonlabs.cards/about" target="_blank">About</a>
-      </nav>
-      <div class="logo bottom-logo">
-        <img src="./images/spoonLabsHeader.png" alt="Bottom Logo">
-      </div>
+    <header class="top-nav">
+        <div class="logo-container">
+            <!-- Update the image source if needed -->
+            <img src="./images/spoonLabs_cool.png" alt="SpoonLabs Logo" class="logo-img">
+        </div>
+        <nav class="nav-links">
+            <a href="https://www.ebay.com/sch/i.html?item=135416477458&rt=nc&_trksid=p4429486.m3561.l11612118.m3561.11612118.sns=spoonlabs" target="_blank">eBay</a>
+            <a href="https://www.instagram.com/spoonlabs/" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@spoonlabs" target="_blank">TikTok</a>
+            <a href="https://spoonlabs.cards/about" target="_blank">About</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="inventory">
+            <h1>For Sale or Trade</h1>
+            <div id="cards" class="cards-container">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+        </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="inventory">
-      <h1>For Sale or Trade</h1>
-      <div id="cards" class="cards-container">
-        <!-- Cards will be dynamically inserted here -->
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

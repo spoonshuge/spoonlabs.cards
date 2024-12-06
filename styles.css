@@ -1,71 +1,74 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
   background-color: #f8f8f8;
-  display: flex;
-  height: 100vh;
-  overflow: hidden; /* Prevents the whole page from scrolling */
+  color: #333;
 }
 
-.container {
+/* Top Navigation */
+.top-nav {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #222, #444);
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 60px; 
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links a {
+  color: #00ff00; 
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 20px; 
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00cc00;
+}
+
+/* Adjust container and inventory to account for the fixed header */
+.container {
+  margin-top: 100px; /* space for the fixed header */
+  display: flex;
+  justify-content: center;
   width: 100%;
 }
 
-.sidebar {
-  width: 20%;
-  background-color: #333;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  position: fixed; /* Keeps the sidebar locked in place */
-  top: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.sidebar .logo img {
-  max-width: 100%;
-  margin-bottom: 20px;
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.links a {
-  color: #00ff00; /* Bright green */
-  text-decoration: none;
-  margin: 10px 0;
-  font-size: 36px; /* Doubled the original font size */
-  font-weight: bold; /* Optional: makes the text bolder */
-}
-
-.links a:hover {
-  color: #00cc00; /* Slightly darker green for hover effect */
-}
-
 .inventory {
-  margin-left: 20%; /* Leaves space for the sidebar */
-  width: 80%;
-  padding: 20px;
+  width: 100%;
+  max-width: 1200px; 
   background-color: white;
-  overflow-y: auto; /* Makes the inventory scrollable */
-  height: 100vh;
-  box-sizing: border-box; /* Ensures padding doesn't add to the height */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .inventory h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: #333;
 }
 
+/* Cards Layout */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -74,28 +77,68 @@ body {
 }
 
 .card {
-  width: 200px;
+  width: 250px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 7px rgba(0,0,0,0.1);
   background-color: #fff;
   text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 .card .description {
   padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
 }
 
 .card .price {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #27ae60;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+  .nav-links a {
+    font-size: 16px;
+    margin: 0 10px;
+  }
+
+  .logo-img {
+    height: 50px;
+  }
+
+  .inventory {
+    padding: 10px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .inventory h1 {
+    font-size: 28px;
+  }
 }

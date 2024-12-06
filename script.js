@@ -1,22 +1,31 @@
-// Sample inventory data (to be replaced with your spreadsheet data)
-const inventory = [
-  { image: 'card1.jpg', description: 'Card 1 Description', price: '$10' },
-  { image: 'card2.jpg', description: 'Card 2 Description', price: '$20' },
-  { image: 'card3.jpg', description: 'Card 3 Description', price: '$15' },
-];
+// Replace with your published CSV link from the Google Sheet
+// Example: const googleSheetCSVUrl = 'https://docs.google.com/spreadsheets/d/xxxxxxxxx/pub?output=csv';
+const googleSheetCSVUrl = 'YOUR_PUBLISHED_CSV_LINK';
 
-// Dynamically populate cards
 const cardsContainer = document.getElementById('cards');
 
-inventory.forEach(item => {
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  card.innerHTML = `
-    <img src="${item.image}" alt="${item.description}">
-    <div class="description">${item.description}</div>
-    <div class="price">${item.price}</div>
-  `;
-
-  cardsContainer.appendChild(card);
+Papa.parse(googleSheetCSVUrl, {
+  download: true,
+  header: true,
+  complete: function(results) {
+    const inventory = results.data; 
+    populateCards(inventory);
+  }
 });
+
+function populateCards(inventory) {
+  cardsContainer.innerHTML = '';
+  inventory.forEach(item => {
+    // Expecting columns: "Card Title", "Price", "Link", "Image"
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <a href="${item.Link}" target="_blank" style="display:block;">
+        <img src="${item.Image}" alt="${item['Card Title']}">
+      </a>
+      <div class="description">${item['Card Title']}</div>
+      <div class="price">${item.Price}</div>
+    `;
+    cardsContainer.appendChild(card);
+  });
+}
