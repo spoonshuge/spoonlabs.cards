@@ -9,8 +9,8 @@ body {
 /* Large Logo Overlay */
 .logo-overlay {
   position: absolute;
-  top: 0px;  /* Adjust as desired */
-  left: 0px; /* Adjust as desired */
+  top: 10px;  /* Adjust as desired */
+  left: 10px; /* Adjust as desired */
   z-index: 2000; /* Above the nav which has 1000 */
 }
 
