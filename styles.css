@@ -3,9 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #333; /* Default text color */
-  position: relative;
-  overflow: hidden; /* Prevent scrolling of background */
+  color: #333;
 }
 
 /* Background container */
@@ -65,9 +63,56 @@ main {
   text-align: center;
 }
 
+main h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
 main p {
   font-size: 1.25rem;
   color: #444;
+}
+
+/* Card grid styles */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Individual card styles */
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.card-price {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
 /* Footer styles */
