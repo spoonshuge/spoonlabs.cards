@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Baseball Cards Inventory</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spoonLabs - Baseball Cards</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Include Papa Parse for CSV parsing -->
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.1/papaparse.min.js"></script>
 </head>
 <body>
-    <!-- Fixed logo container -->
-    <div class="logo-container">
-        <img src="./images/spoonLabs__cool.png" alt="SpoonLabs Logo" class="main-logo">
-    </div>
+    <!-- Background container -->
+    <div class="background"></div>
 
-    <!-- Top navigation -->
-    <header class="top-nav">
-        <nav class="nav-links">
-            <a href="https://www.ebay.com/..." target="_blank">eBay</a>
-            <a href="https://www.instagram.com/spoonlabs/" target="_blank">Instagram</a>
-            <a href="https://www.tiktok.com/@spoonlabs" target="_blank">TikTok</a>
-            <a href="https://spoonlabs.cards/about" target="_blank">About</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        <div class="inventory">
-            <h1>For Sale or Trade</h1>
-            <div id="cards" class="cards-container">
-                <!-- Cards will be dynamically inserted here -->
-            </div>
+    <header>
+        <div class="header-content">
+            <img src="./images/spoonLabsHeader.png" alt="spoonLabs Logo" class="header-logo">
         </div>
-    </div>
-
-    <script src="script.js"></script>
+    </header>
+    <nav>
+        <a href="https://www.ebay.com/" target="_blank" rel="noopener">eBay</a>
+        <a href="https://www.instagram.com/spoonlabs/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@spoonlabs" target="_blank" rel="noopener">TikTok</a>
+        <a href="/about.html">About</a>
+    </nav>
+    <main>
+        <p>Your one-stop shop for baseball cards. More features coming soon!</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 spoonLabs. All rights reserved.</p>
+    </footer>
 </body>
 </html>
