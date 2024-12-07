@@ -10,27 +10,36 @@ body {
 .logo-overlay img {
   width: 200px; /* Set your desired width */
   height: auto; /* Maintain aspect ratio */
-  max-width: 100%; /* Ensure it stays responsive */
+  max-width: 100%;
 }
 
 .logo-overlay img {
-  width: 50%; /* Adjust percentage as needed */
-  max-width: 300px; /* Optional: Cap the maximum size */
-  height: auto; /* Maintain aspect ratio */
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+}
+
+/* Add a subtle hover effect for the main logo */
+.main-logo {
+  transition: transform 0.3s ease;
+}
+
+.main-logo:hover {
+  transform: scale(1.05);
 }
 
 /* Top Navigation */
 .top-nav {
   display: flex;
   align-items: center;
-  justify-content: center; /* since logo is separate now, center the links */
+  justify-content: center;
   background: linear-gradient(to right, #222, #444);
   padding: 10px 20px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000; /* Below the logo overlay */
+  z-index: 1000; 
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
@@ -49,7 +58,7 @@ body {
 
 /* Container and Inventory */
 .container {
-  margin-top: 100px; /* Space for the fixed header */
+  margin-top: 100px; 
   display: flex;
   justify-content: center;
   width: 100%;
@@ -142,6 +151,6 @@ body {
   }
 
   .logo-overlay img {
-    height: 120px; /* Slightly smaller on mobile if desired */
+    height: 120px;
   }
 }
