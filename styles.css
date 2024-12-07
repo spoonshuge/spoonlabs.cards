@@ -6,21 +6,19 @@ body {
   overflow-x: hidden;
 }
 
-/* Large Logo Overlay */
-.logo-overlay img {
-  width: 200px; /* Set your desired width */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 100%;
+/* Logo container fixed in top-left */
+.logo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000; /* Ensure the logo is above the navigation */
 }
 
-.logo-overlay img {
-  width: 50%;
-  max-width: 300px;
-  height: auto;
-}
-
-/* Add a subtle hover effect for the main logo */
 .main-logo {
+  width: 300px; /* Adjust size as needed */
+  height: auto;
+  cursor: pointer;
+  display: block;
   transition: transform 0.3s ease;
 }
 
@@ -28,18 +26,17 @@ body {
   transform: scale(1.05);
 }
 
-/* Top Navigation */
+/* Top Navigation below the logo */
 .top-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to right, #222, #444);
-  padding: 10px 20px;
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000; 
+  width: 100%;
+  background: linear-gradient(to right, #222, #444);
+  padding: 15px 20px;
+  z-index: 1000; /* Below the logo */
+  display: flex;
+  justify-content: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
@@ -56,9 +53,9 @@ body {
   color: #00cc00;
 }
 
-/* Container and Inventory */
+/* Push content below the nav and logo */
 .container {
-  margin-top: 100px; 
+  margin-top: 80px; /* Adjust based on nav height */
   display: flex;
   justify-content: center;
   width: 100%;
@@ -150,7 +147,7 @@ body {
     font-size: 28px;
   }
 
-  .logo-overlay img {
-    height: 120px;
+  .main-logo {
+    width: 100px; /* Adjust size for smaller screens */
   }
 }
