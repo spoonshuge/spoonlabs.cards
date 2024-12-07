@@ -7,17 +7,16 @@ body {
 }
 
 /* Large Logo Overlay */
-.logo-overlay {
-  position: absolute;
-  top: 10px;  /* Adjust as desired */
-  left: 10px; /* Adjust as desired */
-  z-index: 2000; /* Above the nav which has 1000 */
+.logo-overlay img {
+  width: 200px; /* Set your desired width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure it stays responsive */
 }
 
 .logo-overlay img {
-  height: 180px; /* 3x the previous ~60px size */
-  width: auto;
-  object-fit: contain;
+  width: 50%; /* Adjust percentage as needed */
+  max-width: 300px; /* Optional: Cap the maximum size */
+  height: auto; /* Maintain aspect ratio */
 }
 
 /* Top Navigation */
