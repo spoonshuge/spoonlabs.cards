@@ -1,153 +1,82 @@
+/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #f8f8f8;
-  color: #333;
-  overflow-x: hidden;
+  padding: 0;
+  color: #333; /* Default text color */
+  position: relative;
+  overflow: hidden; /* Prevent scrolling of background */
 }
 
-/* Logo container fixed in top-left */
-.logo-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2000; /* Ensure the logo is above the navigation */
-}
-
-.main-logo {
-  width: 300px; /* Adjust size as needed */
-  height: auto;
-  cursor: pointer;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.main-logo:hover {
-  transform: scale(1.05);
-}
-
-/* Top Navigation below the logo */
-.top-nav {
+/* Background container */
+.background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to right, #222, #444);
-  padding: 15px 20px;
-  z-index: 1000; /* Below the logo */
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  height: 100%;
+  background: url('./images/spoonLabs__cool.png') no-repeat center center fixed;
+  background-size: 120%; /* Adjust size as needed */
+  opacity: 0.4; /* Adjust opacity */
+  z-index: -1; /* Ensure it stays behind all content */
+  pointer-events: none; /* Prevent interaction with the background */
 }
 
-.nav-links a {
-  color: #00ff00;
+/* Header styles */
+header {
+  background-color: #333;
+  display: flex;
+  justify-content: center; /* Center the logo horizontally */
+  padding: 1rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 100px; /* Adjust as needed for visibility */
+  width: auto;
+}
+
+/* Navigation styles */
+nav {
+  background-color: #444;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 1.5rem;
   text-decoration: none;
-  margin: 0 15px;
-  font-size: 20px;
   font-weight: bold;
-  transition: color 0.3s;
+  font-size: 1.1rem;
 }
 
-.nav-links a:hover {
-  color: #00cc00;
+nav a:hover {
+  text-decoration: underline;
 }
 
-/* Push content below the nav and logo */
-.container {
-  margin-top: 80px; /* Adjust based on nav height */
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.inventory {
-  width: 100%;
-  max-width: 1200px;
-  background-color: white;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
-}
-
-.inventory h1 {
+/* Main content styles */
+main {
+  padding: 2rem;
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 36px;
-  color: #333;
 }
 
-/* Cards Layout */
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+main p {
+  font-size: 1.25rem;
+  color: #444;
 }
 
-.card {
-  width: 250px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 7px rgba(0,0,0,0.1);
-  background-color: #fff;
+/* Footer styles */
+footer {
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.card img {
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+  position: relative;
+  bottom: 0;
   width: 100%;
-  height: auto;
-  display: block;
-}
-
-.card .description {
-  padding: 10px;
-  font-weight: bold;
-  font-size: 18px;
-  color: #333;
-}
-
-.card .price {
-  font-size: 20px;
-  font-weight: bold;
-  color: #27ae60;
-  margin-bottom: 15px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .nav-links a {
-    font-size: 16px;
-    margin: 0 10px;
-  }
-
-  .inventory {
-    padding: 10px;
-  }
-
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-    margin: 10px 0;
-  }
-
-  .inventory h1 {
-    font-size: 28px;
-  }
-
-  .main-logo {
-    width: 100px; /* Adjust size for smaller screens */
-  }
 }
