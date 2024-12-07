@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' https://i.ebayimg.com;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spoonLabs - Baseball Cards</title>
+    <title>spoonLabs.Cards</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,10 +23,14 @@
         <a href="/about.html">About</a>
     </nav>
     <main>
-        <p>Your one-stop shop for baseball cards. More features coming soon!</p>
+        <h1>For Sale and Trade</h1>
+        <div id="card-grid" class="card-grid">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 spoonLabs. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
