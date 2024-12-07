@@ -1,40 +1,82 @@
-// Replace with your published CSV link from the Google Sheet
-const googleSheetCSVUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRFTvzmV1Uq23UTFobTY_Nq0NfQryWsXcKRAw5BB5E6gmJXeaJc8-VcQJ0bFcta2svQCpfx8-AuSt2N/pub?output=csv';
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333; /* Default text color */
+  position: relative;
+  overflow: hidden; /* Prevent scrolling of background */
+}
 
-const cardsContainer = document.getElementById('cards');
+/* Background container */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./images/spoonLabs__cool.png') no-repeat center center fixed;
+  background-size: 120%; /* Adjust size as needed */
+  opacity: 0.4; /* Adjust opacity */
+  z-index: -1; /* Ensure it stays behind all content */
+  pointer-events: none; /* Prevent interaction with the background */
+}
 
-// Parse the CSV data
-Papa.parse(googleSheetCSVUrl, {
-  download: true,
-  header: true,
-  complete: function(results) {
-    console.log("Parsed data:", results.data); // Log parsed data to debug
-    const inventory = results.data; 
-    populateCards(inventory); // Populate cards
-  },
-  error: function(err) {
-    console.error("PapaParse error:", err); // Log parsing errors
-  }
-});
+/* Header styles */
+header {
+  background-color: #333;
+  display: flex;
+  justify-content: center; /* Center the logo horizontally */
+  padding: 1rem;
+}
 
-// Function to populate cards
-function populateCards(inventory) {
-  cardsContainer.innerHTML = ''; // Clear previous cards
-  inventory.forEach(item => {
-    if (item['Card Title'] && item.Image && item.Price && item.Link) {
-      // Create card only if data is valid
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <a href="${item.Link}" target="_blank" style="display:block;">
-          <img src="${item.Image}" alt="${item['Card Title']}">
-        </a>
-        <div class="description">${item['Card Title']}</div>
-        <div class="price">${item.Price}</div>
-      `;
-      cardsContainer.appendChild(card);
-    } else {
-      console.warn("Skipping invalid item:", item); // Log skipped items
-    }
-  });
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 100px; /* Adjust as needed for visibility */
+  width: auto;
+}
+
+/* Navigation styles */
+nav {
+  background-color: #444;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content styles */
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+main p {
+  font-size: 1.25rem;
+  color: #444;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
