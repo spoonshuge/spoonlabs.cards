@@ -119,7 +119,7 @@ main p {
   margin-bottom: 0.5rem;
   .currSign:before {
     content: '$';
-}
+  }
 }
 
 /* Footer styles */
