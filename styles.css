@@ -132,3 +132,24 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+/* About page styles */
+
+/* Image gallery */
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.image-gallery img {
+  max-width: 45%; /* Adjust size to fit side by side */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
