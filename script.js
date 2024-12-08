@@ -1,7 +1,7 @@
 const proxyURL = "https://cors-anywhere.herokuapp.com/";
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR2PdmYo8j5tS_HaLmN_3F9fWKRQEYGEljIFPtCGu9N0z6J0PqulTYzEwQmynRMR6lcOfo2ppu88jm1/pub?gid=0&single=true&output=csv";
 
-fetch(proxyURL + sheetURL)
+fetch(sheetURL)
     .then((response) => response.text())
     .then((data) => {
         // Same parsing and processing as before
