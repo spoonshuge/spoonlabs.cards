@@ -107,9 +107,6 @@ main p {
   font-size: 1.1rem;
   font-weight: bold;
   margin: 0.5rem 0;
-  a:link { 
-    text-decoration: none; 
-  } 
 }
 
 .card-price {
