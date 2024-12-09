@@ -18,17 +18,17 @@ a {
   width: 100%;
   height: 100%;
   background: url('./images/spoonLabs__cool.png') no-repeat center center fixed;
-  background-size: 80%; /* Adjust size as needed */
-  opacity: 0.3; /* Adjust opacity */
-  z-index: -1; /* Ensure it stays behind all content */
-  pointer-events: none; /* Prevent interaction with the background */
+  background-size: 80%;
+  opacity: 0.1; /* Subtle transparency for readability */
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Header styles */
 header {
   background-color: #333;
   display: flex;
-  justify-content: center; /* Center the logo horizontally */
+  justify-content: center;
   padding: 1rem;
 }
 
@@ -38,7 +38,7 @@ header {
 }
 
 .header-logo {
-  height: 100px; /* Adjust as needed for visibility */
+  height: 100px;
   width: auto;
 }
 
@@ -50,15 +50,17 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: #fff;
   margin: 0 1.5rem;
-  text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background-color: #4CAF50; /* Highlight navigation link */
+  border-radius: 5px;
 }
 
 /* Main content styles */
@@ -81,61 +83,60 @@ main p {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem; /* Increased spacing between cards */
   padding: 1rem;
 }
 
 /* Individual card styles */
 .card {
-  background: rgb(141, 145, 148);
-  border: 1px solid #ddd;
+  background-color: rgba(141, 145, 148, 0.5); /* Transparent gray background */
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s;
+  padding: 10px; /* Internal padding for content */
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px); /* Lift the card on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-color: #4CAF50; /* Highlight border on hover */
 }
 
 .card img {
-  width: 75%;
-  height: auto;
+  width: 75%; /* Set the image size to 75% of the card width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure the image behaves like a block element */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.card:hover img {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .card-title {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin: 0.5rem 0;
-}
-
-.card-price {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 0.5rem;
-  .currSign:before {
-    content: '$';
-  }
+  color: #000;
 }
 
 /* Footer styles */
 footer {
   text-align: center;
+  font-size: 0.9rem;
+  color: #bbb;
   padding: 1rem;
   background-color: #333;
-  color: white;
   position: relative;
   bottom: 0;
   width: 100%;
 }
 
 /* About page styles */
-
-/* Image gallery */
 .image-gallery {
   display: flex;
   justify-content: center;
@@ -144,7 +145,7 @@ footer {
 }
 
 .image-gallery img {
-  max-width: 45%; /* Adjust size to fit side by side */
+  max-width: 45%;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
@@ -152,4 +153,76 @@ footer {
 
 .image-gallery img:hover {
   transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Responsive gallery */
+@media (max-width: 768px) {
+  .image-gallery {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .image-gallery img {
+    max-width: 90%;
+  }
+
+}
+
+/* About section styles */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  gap: 1rem;
+  background-color: rgba(22, 84, 4, 0.25); /* Semi-transparent green background */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* Text alignment and color */
+.about-section .text {
+  flex: 1;
+  max-width: 50%;
+  text-align: left; /* Left-align text */
+  color: #4c0059; /* Warm golden yellow for text and title */
+}
+
+.about-section h2 {
+  font-size: 2rem; /* Larger title size */
+  margin-bottom: 1rem;
+  color: #4c0059; /* Same color as text */
+}
+
+.about-section p {
+  font-size: 1.3rem; /* Larger paragraph text */
+  line-height: 1.8;
+  color: #4c0059; /* Same color as the title */
+}
+
+/* Image styling */
+.about-section img {
+  flex: 1;
+  max-width: 40%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for images */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-section {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .about-section .text {
+      max-width: 100%;
+  }
+
+  .about-section img {
+      max-width: 80%;
+      margin: 1rem 0;
+  }
 }
