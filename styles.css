@@ -210,6 +210,16 @@ footer {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for images */
 }
 
+.announcement {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8; /* Light grey background */
+    margin: 20px auto; /* Centering the div */
+    width: 80%; /* Taking 80% of the content area */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Soft shadow around the block */
+    border-radius: 10px; /* Rounded corners */
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .about-section {
