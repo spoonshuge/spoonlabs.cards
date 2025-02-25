@@ -12,11 +12,11 @@ a {
 
 .container {
   width: 100%;
-  max-width: 1200px; /* You can adjust this value based on your preference */
-  margin: 0 auto; /* Centers the container */
-  padding: 0 20px; /* Optional: Adds some padding inside the container */
-  border-left: 2px solid #444; /* Adds a left border */
-  border-right: 2px solid #444; /* Adds a right border */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Adjust or remove padding if needed */
+  border-left: 2px solid #444;
+  border-right: 2px solid #444;
 }
 
 /* Background container */
@@ -89,17 +89,18 @@ main p {
 }
 
 #blog-container > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    gap: 1rem;
-    background-color: rgba(22, 84, 4, 0.25); /* Semi-transparent green background */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    width: 80%; /* Adjust this value to control the width */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem auto; /* Center the blog container */
+  padding: 1.5rem;
+  gap: 1rem;
+  background-color: rgba(22, 84, 4, 0.25); /* Semi-transparent green background */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  width: 80%; /* Adjust this value to control the width */
+  max-width: 800px; /* New maximum width for blog container */
 }
 
 /* Card grid styles */
