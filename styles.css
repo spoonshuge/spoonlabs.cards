@@ -124,7 +124,7 @@ main p {
 }
 
 .card img {
-  width: 75%; /* Set the image size to 75% of the card width */
+  width: 90%; /* Set the image size to 75% of the card width */
   height: auto; /* Maintain aspect ratio */
   display: block; /* Ensure the image behaves like a block element */
   margin: 0 auto; /* Center the image horizontally */
@@ -135,7 +135,7 @@ main p {
 }
 
 .card-title {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: bold;
   margin: 0.5rem 0;
   color: #000;
