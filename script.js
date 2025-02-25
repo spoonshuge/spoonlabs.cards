@@ -26,7 +26,6 @@ fetch(sheetURL)
                 </div>
                 <div class="card-images">
                     <img src="${card.imageFront}" alt="${card.title} Front" class="card-img front">
-                    <img src="${card.imageBack}" alt="${card.title} Back" class="card-img back" style="display: none;">
                 </div>
             `;
             document.getElementById("card-grid").appendChild(cardElement);
