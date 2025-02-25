@@ -34,3 +34,26 @@ fetch(sheetURL)
         const cardGrid = document.getElementById("card-grid");
         cardGrid.innerHTML = `<p style="color: red;">Error loading card data. Please try again later.</p>`;
     });
+
+// Fetches and displays blog posts
+function loadBlogPosts() {
+    const blogContainer = document.getElementById('blog-container');
+    blogContainer.innerHTML = ''; // Clear existing blog posts
+
+    // List of blog post files, ideally fetched from the server or maintained manually
+    const posts = ['2023-02-01-first-post.html', '2023-02-02-second-post.html'];
+
+    // Sort posts by date, assuming filenames contain the date
+    posts.sort().reverse().forEach(post => {
+        fetch(`/blog/${post}`)
+            .then(response => response.text())
+            .then(html => {
+                const postElement = document.createElement('div');
+                postElement.innerHTML = html;
+                blogContainer.appendChild(postElement);
+            });
+    });
+}
+
+// Call this function when the page loads
+window.onload = loadBlogPosts;
