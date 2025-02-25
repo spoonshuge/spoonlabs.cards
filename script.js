@@ -12,7 +12,7 @@ fetch(sheetURL)
         const cards = rows.map((row) => {
             const [price, card, PicURLF, PicURLB] = row.split(",");
             if (!price || !card || !PicURLF) return null; // Skip invalid rows
-            return { title: card, price, image: `${PicURLB}` };
+            return { title: card, price, image: `${PicURLF}` };
         }).filter(Boolean); // Remove null entries
 
         const cardGrid = document.getElementById("card-grid");
@@ -21,8 +21,8 @@ fetch(sheetURL)
             cardElement.className = "card";
             cardElement.innerHTML = `
                 <a href="${card.image}" target="_blank" rel="noopener noreferrer">
-                    <img src="${card.image}" alt="${card.title}">
                     <div class="card-title">${card.title}</div>
+                    <img src="${card.image}" alt="${card.title}">
                     <div class="card-price">${card.price}</div>
                 </a>
             `;
