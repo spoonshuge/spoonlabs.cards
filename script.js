@@ -1,4 +1,3 @@
-const proxyURL = "https://cors-anywhere.herokuapp.com/";
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSb9Zpo5dnvCaVC0xS4tz6eWjv-fbT3ryuJuVAnypu2gBys3t_Djn3otlmHHjdTKJ5K-iXgLWQDcB3B/pub?gid=0&single=true&output=csv";
 
 fetch(sheetURL)
