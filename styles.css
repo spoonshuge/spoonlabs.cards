@@ -130,9 +130,6 @@ main p {
 
 .card .back {
   display: none; /* Hide the back image by default */
-  position: absolute;
-  top: 10px;
-  left: 10px;
 }
 
 .card:hover .front {
