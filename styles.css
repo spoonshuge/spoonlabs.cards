@@ -87,9 +87,16 @@ main p {
 }
 
 #blog-container > div {
-    margin-bottom: 20px; /* Spacing between posts */
-    padding: 10px; /* Padding around posts */
-    border-bottom: 1px solid #ccc; /* Separator */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    gap: 1rem;
+    background-color: rgba(22, 84, 4, 0.25); /* Semi-transparent green background */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
 /* Card grid styles */
