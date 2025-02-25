@@ -117,21 +117,30 @@ main p {
   padding: 10px; /* Internal padding for content */
 }
 
-.card:hover {
-  transform: translateY(-5px); /* Lift the card on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  border-color: #4CAF50; /* Highlight border on hover */
-}
-
 .card img {
-  width: 90%; /* Set the image size to 75% of the card width */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Ensure the image behaves like a block element */
-  margin: 0 auto; /* Center the image horizontally */
+  width: 90%;
+  height: auto;
+  display: block; /* Changed from 'none' to 'block' for front image */
+  margin: 0 auto;
 }
 
-.card:hover img {
-  transform: scale(1.05); /* Slight zoom on hover */
+.card .front {
+  display: block; /* Ensure the front image is always shown initially */
+}
+
+.card .back {
+  display: none; /* Hide the back image by default */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.card:hover .front {
+  display: none; /* Hide front image on hover */
+}
+
+.card:hover .back {
+  display: block; /* Show back image on hover */
 }
 
 .card-title {
