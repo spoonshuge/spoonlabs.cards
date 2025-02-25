@@ -126,18 +126,6 @@ main p {
   margin: auto;  // Center the image
 }
 
-.card .front {
-  display: block;  // Always show the front by default
-}
-
-.card:hover .front {
-  display: none;  // Hide the front when hovering
-}
-
-.card:hover .back {
-  display: block;  // Show the back when hovering
-}
-
 .card-title {
   font-size: 0.9rem;
   font-weight: bold;
