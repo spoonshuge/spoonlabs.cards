@@ -15,6 +15,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 1200px;
   height: 100%;
   background: url('./images/spoonLabs__cool.png') no-repeat center center fixed;
   background-size: 80%;
