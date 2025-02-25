@@ -10,6 +10,13 @@ a {
   text-decoration: none;
 }
 
+.container {
+  width: 100%;
+  max-width: 1200px; /* You can adjust this value based on your preference */
+  margin: 0 auto; /* Centers the container */
+  padding: 0 20px; /* Optional: Adds some padding inside the container */
+}
+
 /* Background container */
 .background {
   position: fixed;
