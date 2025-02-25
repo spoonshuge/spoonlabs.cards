@@ -119,19 +119,27 @@ main p {
   padding: 10px; /* Internal padding for content */
 }
 
-.card img {
-  width: 90%;
+.card-img {
+  width: 90%;  // Changed to 100% to fill the container for visibility
   height: auto;
-  display: block; /* Changed from 'none' to 'block' for front image */
-  margin: 0 auto;
+  display: block;  // Default display
+  margin: auto;  // Center the image
+}
+
+.card .front {
+  display: block;  // Always show the front by default
+}
+
+.card .back {
+  display: none;  // Hide the back by default
 }
 
 .card:hover .front {
-  display: none; /* Hide front image on hover */
+  display: none;  // Hide the front when hovering
 }
 
 .card:hover .back {
-  display: block; /* Show back image on hover */
+  display: block;  // Show the back when hovering
 }
 
 .card-title {
