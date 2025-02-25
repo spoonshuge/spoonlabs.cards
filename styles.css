@@ -124,14 +124,6 @@ main p {
   margin: 0 auto;
 }
 
-.card .front {
-  display: block; /* Ensure the front image is always shown initially */
-}
-
-.card .back {
-  display: none; /* Hide the back image by default */
-}
-
 .card:hover .front {
   display: none; /* Hide front image on hover */
 }
