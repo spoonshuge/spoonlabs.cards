@@ -10,16 +10,6 @@ a {
   text-decoration: none;
 }
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px; /* Adjust or remove padding if needed */
-  border-left: 2px solid #444;
-  border-right: 2px solid #444;
-}
-
-/* Background container */
 .background {
   position: fixed;
   top: 0;
@@ -31,6 +21,7 @@ a {
   opacity: 0.1; /* Subtle transparency for readability */
   z-index: -1;
   pointer-events: none;
+  box-shadow: inset 0px 0px 0px 2px #444; /* Inset shadow mimics a border */
 }
 
 /* Header styles */
