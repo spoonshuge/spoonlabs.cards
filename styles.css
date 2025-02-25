@@ -86,6 +86,12 @@ main p {
   color: #444;
 }
 
+#blog-container > div {
+    margin-bottom: 20px; /* Spacing between posts */
+    padding: 10px; /* Padding around posts */
+    border-bottom: 1px solid #ccc; /* Separator */
+}
+
 /* Card grid styles */
 .card-grid {
   display: grid;
