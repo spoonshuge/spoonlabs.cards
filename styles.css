@@ -130,10 +130,6 @@ main p {
   display: block;  // Always show the front by default
 }
 
-.card .back {
-  display: none;  // Hide the back by default
-}
-
 .card:hover .front {
   display: none;  // Hide the front when hovering
 }
