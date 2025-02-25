@@ -24,7 +24,7 @@ fetch(sheetURL)
                 <a href="${card.image}" target="_blank" rel="noopener noreferrer">
                     <img src="${card.image}" alt="${card.title}">
                     <div class="card-title">${card.title}</div>
-                    <div class="card-price">$${card.price}</div>
+                    <div class="card-price">${card.price}</div>
                 </a>
             `;
             cardGrid.appendChild(cardElement);
