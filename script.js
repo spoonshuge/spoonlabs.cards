@@ -35,40 +35,25 @@ fetch(sheetURL)
         cardGrid.innerHTML = `<p style="color: red;">Error loading card data. Please try again later.</p>`;
     });
 
+// Fetches and displays blog posts
 function loadBlogPosts() {
     const blogContainer = document.getElementById('blog-container');
-    blogContainer.innerHTML = '';
+    blogContainer.innerHTML = ''; // Clear existing blog posts
 
-    // Start date is today, and we go back 10 days
-    let currentDate = new Date();
-    const endDate = new Date();
-    endDate.setDate(currentDate.getDate() - 10);
+    // List of blog post files, ideally fetched from the server or maintained manually
+    const posts = ['2025-02-24-01.html'];
 
-    // Loop from today back to 10 days ago
-    while (currentDate >= endDate) {
-        // Format the date to YYYY-MM-DD
-        const dateStr = currentDate.toISOString().slice(0, 10);
-        // Try to load two posts per day
-        for (let i = 1; i <= 2; i++) {
-            let filename = `${dateStr}-0${i}.html`;
-            fetch(`/blog/${filename}`)
-                .then(response => {
-                    if (!response.ok) throw new Error('Post not found');
-                    return response.text();
-                })
-                .then(html => {
-                    const postElement = document.createElement('div');
-                    postElement.innerHTML = html;
-                    blogContainer.appendChild(postElement);
-                })
-                .catch(error => {
-                    console.log(`Post not found: ${filename}, skipping...`);
-                });
-        }
-        // Go to the previous day
-        currentDate.setDate(currentDate.getDate() - 1);
-    }
+    // Sort posts by date, assuming filenames contain the date
+    posts.sort().reverse().forEach(post => {
+        fetch(`/blog/${post}`)
+            .then(response => response.text())
+            .then(html => {
+                const postElement = document.createElement('div');
+                postElement.innerHTML = html;
+                blogContainer.appendChild(postElement);
+            });
+    });
 }
 
-// Add this to ensure the blog posts load when the page does
+// Call this function when the page loads
 window.onload = loadBlogPosts;
