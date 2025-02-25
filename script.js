@@ -1,5 +1,5 @@
 const proxyURL = "https://cors-anywhere.herokuapp.com/";
-const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR2PdmYo8j5tS_HaLmN_3F9fWKRQEYGEljIFPtCGu9N0z6J0PqulTYzEwQmynRMR6lcOfo2ppu88jm1/pub?gid=0&single=true&output=csv";
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSb9Zpo5dnvCaVC0xS4tz6eWjv-fbT3ryuJuVAnypu2gBys3t_Djn3otlmHHjdTKJ5K-iXgLWQDcB3B/pub?gid=0&single=true&output=csv";
 
 fetch(sheetURL)
     .then((response) => {
@@ -11,9 +11,9 @@ fetch(sheetURL)
     .then((data) => {
         const rows = data.split("\n").slice(1); // Skip header row
         const cards = rows.map((row) => {
-            const [title, price, link, image] = row.split(",");
-            if (!title || !price || !link || !image) return null; // Skip invalid rows
-            return { title, price, link, image };
+            const [price, card, PicURLF, PicURLB] = row.split(",");
+            if (!price || !card || !PicURLF) return null; // Skip invalid rows
+            return { title: card, price, image: PicURLF };
         }).filter(Boolean); // Remove null entries
 
         const cardGrid = document.getElementById("card-grid");
@@ -21,9 +21,10 @@ fetch(sheetURL)
             const cardElement = document.createElement("div");
             cardElement.className = "card";
             cardElement.innerHTML = `
-                <a href="${card.link}" target="_blank" rel="noopener noreferrer">
+                <a href="${card.image}" target="_blank" rel="noopener noreferrer">
                     <img src="${card.image}" alt="${card.title}">
                     <div class="card-title">${card.title}</div>
+                    <div class="card-price">$${card.price}</div>
                 </a>
             `;
             cardGrid.appendChild(cardElement);
