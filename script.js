@@ -11,8 +11,8 @@ fetch(sheetURL)
         const rows = data.split("\n").slice(1); // Skip header row
         const cards = rows.map((row) => {
             const [price, card, PicURLF, PicURLB] = row.split(",");
-            if (!price || !card || !PicURLF) return null; // Skip invalid rows
-            return { title: card, price, image: `${PicURLF}` };
+            if (!price || !card || !PicURLF || !PicURLB) return null; // Skip invalid rows
+            return { title: card, price, imageFront: PicURLF, imageBack: PicURLB };
         }).filter(Boolean); // Remove null entries
 
         const cardGrid = document.getElementById("card-grid");
@@ -20,9 +20,10 @@ fetch(sheetURL)
             const cardElement = document.createElement("div");
             cardElement.className = "card";
             cardElement.innerHTML = `
-                <a href="${card.image}" target="_blank" rel="noopener noreferrer">
+                <a href="${card.imageFront}" target="_blank" rel="noopener noreferrer">
                     <div class="card-title">${card.title}</div>
-                    <img src="${card.image}" alt="${card.title}">
+                    <img src="${card.imageFront}" alt="${card.title} Front" class="card-img front">
+                    <img src="${card.imageBack}" alt="${card.title} Back" class="card-img back" style="display: none;">
                     <div class="card-price">${card.price}</div>
                 </a>
             `;
@@ -34,6 +35,7 @@ fetch(sheetURL)
         const cardGrid = document.getElementById("card-grid");
         cardGrid.innerHTML = `<p style="color: red;">Error loading card data. Please try again later.</p>`;
     });
+
 
 // Fetches and displays blog posts
 function loadBlogPosts() {
