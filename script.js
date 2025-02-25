@@ -13,7 +13,7 @@ fetch(sheetURL)
         const cards = rows.map((row) => {
             const [price, card, PicURLF, PicURLB] = row.split(",");
             if (!price || !card || !PicURLF) return null; // Skip invalid rows
-            return { title: card, price, image: PicURLF };
+            return { title: card, price, image: `${proxyURL}${PicURLF}` };
         }).filter(Boolean); // Remove null entries
 
         const cardGrid = document.getElementById("card-grid");
