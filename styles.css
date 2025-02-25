@@ -141,6 +141,13 @@ main p {
   color: #000;
 }
 
+.card-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #000;
+}
+
 /* Footer styles */
 footer {
   text-align: center;
