@@ -23,7 +23,7 @@ fetch(sheetURL)
                 <a href="${card.imageFront}" target="_blank" rel="noopener noreferrer">
                     <div class="card-title">${card.title}</div>
                     <img src="${card.imageFront}" alt="${card.title} Front" class="card-img front">
-                    <img src="${card.imageBack}" alt="${card.title} Back" class="card-img back">
+                    <img src="${card.imageBack}" alt="${card.title} Back" class="card-img back" style="display: none;">
                     <div class="card-price">${card.price}</div>
                 </a>
             `;
