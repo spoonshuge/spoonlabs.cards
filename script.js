@@ -18,16 +18,18 @@ fetch(sheetURL)
         const cardGrid = document.getElementById("card-grid");
         cards.forEach((card) => {
             const cardElement = document.createElement("div");
-            cardElement.className = "card";
+            cardElement.className = "card";  // This ensures that the hover effect applies to this div
             cardElement.innerHTML = `
-                <a href="${card.imageFront}" target="_blank" rel="noopener noreferrer">
+                <div class="card-content">
                     <div class="card-title">${card.title}</div>
+                    <div class="card-price">${card.price}</div>
+                </div>
+                <div class="card-images">
                     <img src="${card.imageFront}" alt="${card.title} Front" class="card-img front">
                     <img src="${card.imageBack}" alt="${card.title} Back" class="card-img back" style="display: none;">
-                    <div class="card-price">${card.price}</div>
-                </a>
+                </div>
             `;
-            cardGrid.appendChild(cardElement);
+            document.getElementById("card-grid").appendChild(cardElement);
         });
     })
     .catch((error) => {
