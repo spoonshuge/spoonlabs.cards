@@ -92,13 +92,14 @@ main p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2rem 0;
+    margin: 2rem auto;
     padding: 1.5rem;
     gap: 1rem;
     background-color: rgba(22, 84, 4, 0.25); /* Semi-transparent green background */
     border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    width: 80%; /* Adjust this value to control the width */
 }
 
 /* Card grid styles */
