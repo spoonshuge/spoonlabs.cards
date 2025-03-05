@@ -1,28 +1,26 @@
 /* General styles */
+/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 00px;
+  padding: 0;
   color: #333;
-}
-
-a {
-  text-decoration: none;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .background {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%; /* Center the background */
+  transform: translateX(-50%); /* Align the center of the element with the viewport center */
   width: 100%;
   max-width: 1200px;
   height: 100%;
   background: url('./images/spoonLabs__cool.png') no-repeat center center fixed;
-  background-size: 80%;
+  background-size: cover; /* Cover the entire area without repeating */
   opacity: 0.1; /* Subtle transparency for readability */
   z-index: -1;
   pointer-events: none;
-  box-shadow: inset 0px 0px 0px 2px #444; /* Inset shadow mimics a border */
 }
 
 /* Header styles */
@@ -44,6 +42,7 @@ header {
 }
 
 /* Navigation styles */
+/* Navigation styles */
 nav {
   width: 100%;
   background-color: #444;
@@ -59,12 +58,26 @@ nav a {
   font-weight: bold;
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
+  display: inline-block; /* Ensure links are treated as block-level elements inline */
   transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
 
 nav a:hover {
   background-color: #4CAF50; /* Highlight navigation link */
   border-radius: 5px;
+}
+
+/* Responsive adjustments for navigation */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 0; /* Adjust padding for vertical layout */
+  }
+
+  nav a {
+    display: block; /* Stack links vertically */
+    margin: 10px auto; /* Center links and add spacing */
+    width: 80%; /* Adjust width to suit vertical layout */
+  }
 }
 
 /* Main content styles */
