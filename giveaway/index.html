@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>spoonLabs Giveaway Entry</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 0.5rem;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>spoonLabs Giveaway Entry</h1>
+  <form id="entryForm">
+    <label>Name
+      <input type="text" name="name" required />
+    </label>
+
+    <label>Display Name (shown on leaderboard)
+      <input type="text" name="displayName" required />
+    </label>
+
+    <label>Preferred Contact Method
+      <select name="contactMethod" id="contactMethod" required>
+        <option value="">Select one</option>
+        <option value="Email">Email</option>
+        <option value="Phone">Phone</option>
+        <option value="Instagram">Instagram</option>
+      </select>
+    </label>
+
+    <div id="emailField" class="hidden">
+      <label>Email
+        <input type="email" name="email" />
+      </label>
+    </div>
+    <div id="phoneField" class="hidden">
+      <label>Phone
+        <input type="tel" name="phone" />
+      </label>
+    </div>
+    <div id="instagramField" class="hidden">
+      <label>Instagram Handle
+        <input type="text" name="instagram" />
+      </label>
+    </div>
+
+    <input type="hidden" name="code" id="codeInput" />
+    <input type="hidden" name="entries" id="entriesInput" />
+
+    <button type="submit">Submit Entry</button>
+  </form>
+
+  <p id="statusMessage"></p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('codeInput').value = params.get('code') || '';
+    document.getElementById('entriesInput').value = params.get('entries') || '1';
+
+    const contactSelect = document.getElementById('contactMethod');
+    const emailField = document.getElementById('emailField');
+    const phoneField = document.getElementById('phoneField');
+    const instagramField = document.getElementById('instagramField');
+
+    contactSelect.addEventListener('change', () => {
+      emailField.classList.add('hidden');
+      phoneField.classList.add('hidden');
+      instagramField.classList.add('hidden');
+      
+      if (contactSelect.value === 'Email') emailField.classList.remove('hidden');
+      if (contactSelect.value === 'Phone') phoneField.classList.remove('hidden');
+      if (contactSelect.value === 'Instagram') instagramField.classList.remove('hidden');
+    });
+
+    document.getElementById('entryForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form));
+
+      // Add validation for the selected contact method input
+      if (
+        (data.contactMethod === 'Email' && !data.email) ||
+        (data.contactMethod === 'Phone' && !data.phone) ||
+        (data.contactMethod === 'Instagram' && !data.instagram)
+      ) {
+        document.getElementById('statusMessage').textContent = `Please fill out your ${data.contactMethod} info.`;
+        return;
+      }
+
+      try {
+        const response = await fetch('https://YOUR-APPSCRIPT-URL-HERE', {
+          method: 'POST',
+          mode: 'no-cors', // use 'cors' for debugging and replace with 'no-cors' in production
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        document.getElementById('statusMessage').textContent = "✅ Entry submitted! Good luck!";
+        form.reset();
+      } catch (err) {
+        document.getElementById('statusMessage').textContent = "❌ Submission failed. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>
