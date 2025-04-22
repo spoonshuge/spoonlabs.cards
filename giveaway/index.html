@@ -73,56 +73,59 @@
 
   <p id="statusMessage"></p>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    document.getElementById('codeInput').value = params.get('code') || '';
-    document.getElementById('entriesInput').value = params.get('entries') || '1';
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById('codeInput').value = params.get('code') || '';
+  document.getElementById('entriesInput').value = params.get('entries') || '1';
 
-    const contactSelect = document.getElementById('contactMethod');
-    const emailField = document.getElementById('emailField');
-    const phoneField = document.getElementById('phoneField');
-    const instagramField = document.getElementById('instagramField');
+  const contactSelect = document.getElementById('contactMethod');
+  const emailField = document.getElementById('emailField');
+  const phoneField = document.getElementById('phoneField');
+  const instagramField = document.getElementById('instagramField');
 
-    contactSelect.addEventListener('change', () => {
-      emailField.classList.add('hidden');
-      phoneField.classList.add('hidden');
-      instagramField.classList.add('hidden');
-      
-      if (contactSelect.value === 'Email') emailField.classList.remove('hidden');
-      if (contactSelect.value === 'Phone') phoneField.classList.remove('hidden');
-      if (contactSelect.value === 'Instagram') instagramField.classList.remove('hidden');
-    });
+  contactSelect.addEventListener('change', () => {
+    emailField.classList.add('hidden');
+    phoneField.classList.add('hidden');
+    instagramField.classList.add('hidden');
 
-    document.getElementById('entryForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const data = Object.fromEntries(new FormData(form));
+    if (contactSelect.value === 'Email') emailField.classList.remove('hidden');
+    if (contactSelect.value === 'Phone') phoneField.classList.remove('hidden');
+    if (contactSelect.value === 'Instagram') instagramField.classList.remove('hidden');
+  });
 
-      // Validate contact method field
-      if (
-        (data.contactMethod === 'Email' && !data.email) ||
-        (data.contactMethod === 'Phone' && !data.phone) ||
-        (data.contactMethod === 'Instagram' && !data.instagram)
-      ) {
-        document.getElementById('statusMessage').textContent = `Please fill out your ${data.contactMethod} info.`;
-        return;
-      }
+  document.getElementById('entryForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form));
 
-      try {
-        const formBody = new URLSearchParams(data);
-        await fetch('https://script.google.com/macros/s/AKfycbxcgbdqWfxMVZXif8ltYPSUQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: formBody.toString()
-        });
+    // Validate contact method field
+    if (
+      (data.contactMethod === 'Email' && !data.email) ||
+      (data.contactMethod === 'Phone' && !data.phone) ||
+      (data.contactMethod === 'Instagram' && !data.instagram)
+    ) {
+      document.getElementById('statusMessage').textContent = `Please fill out your ${data.contactMethod} info.`;
+      return;
+    }
 
-        document.getElementById('statusMessage').textContent = "✅ Entry submitted! Good luck!";
-        form.reset();
-      } catch (err) {
-        document.getElementById('statusMessage').textContent = "⚠️ Something went wrong. Please try again.";
-      }
-    });
-  </script>
+    try {
+      const formBody = new URLSearchParams(data);
+      await fetch('https://script.google.com/macros/s/AKfycbxcgbdqWfxMVZXif8ltYPSUQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formBody.toString()
+      });
+
+      document.getElementById('statusMessage').textContent = "✅ Entry submitted! Good luck!";
+      form.reset();
+    } catch (err) {
+      document.getElementById('statusMessage').textContent = "⚠️ Something went wrong. Please try again.";
+    }
+  });
+});
+</script>
+
 </body>
 </html>
