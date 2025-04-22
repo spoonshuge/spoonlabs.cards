@@ -111,7 +111,7 @@
       try {
         const response = await fetch('https://script.google.com/macros/s/AKfycbxcgbdqWfxMVZXif8ltYPSUQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec', {
           method: 'POST',
-          mode: 'no-cors', // use 'cors' for debugging and replace with 'no-cors' in production
+          mode: 'cors', // use 'cors' for debugging and replace with 'no-cors' in production
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
