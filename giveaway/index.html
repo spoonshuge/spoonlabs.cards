@@ -30,7 +30,7 @@
   </style>
 </head>
 <body>
-  <h1>spoonLabs Giveaway Entry Version 1.0.3</h1>
+  <h1>spoonLabs Giveaway Entry Version 1.0.5</h1>
   <form id="entryForm">
     <label>Name
       <input type="text" name="name" required />
@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = e.target;
     const data = Object.fromEntries(new FormData(form));
 
+    // Minimal validation
     if ((data.contactMethod === 'Email' && !data.email) ||
         (data.contactMethod === 'Phone' && !data.phone) ||
         (data.contactMethod === 'Instagram' && !data.instagram)) {
@@ -107,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxcbqbdqWfxMVZXif8tYP9UQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbxcbqbdqWfxMVZXif8ltYPSUQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -116,13 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
         body: new URLSearchParams(data).toString()
       });
 
-      const text = await response.text();
-      console.log("Google Apps Script response:", text);
-
       document.getElementById('statusMessage').textContent = "✅ Entry submitted! Good luck!";
       form.reset();
     } catch (err) {
-      console.error("Error during fetch:", err);
       document.getElementById('statusMessage').textContent = "⚠️ Something went wrong. Please try again.";
     }
   });
