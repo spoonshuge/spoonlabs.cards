@@ -97,8 +97,8 @@
       e.preventDefault();
       const form = e.target;
       const data = Object.fromEntries(new FormData(form));
-
-      // Add validation for the selected contact method input
+    
+      // Validate that the matching contact field is filled
       if (
         (data.contactMethod === 'Email' && !data.email) ||
         (data.contactMethod === 'Phone' && !data.phone) ||
@@ -107,19 +107,20 @@
         document.getElementById('statusMessage').textContent = `Please fill out your ${data.contactMethod} info.`;
         return;
       }
-
+    
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxcgbdqWfxMVZXif8ltYPSUQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec', {
+        await fetch('https://script.google.com/macros/s/AKfycbxcgbdqWfxMVZXif8ltYPSUQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec', {
           method: 'POST',
-          mode: 'no-cors', // use 'cors' for debugging and replace with 'no-cors' in production
+          mode: 'no-cors', // required for Google Apps Script to accept it
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
-
+    
         document.getElementById('statusMessage').textContent = "✅ Entry submitted! Good luck!";
         form.reset();
       } catch (err) {
-        document.getElementById('statusMessage').textContent = "❌ Submission failed. Please try again.";
+        // Will not really hit here with 'no-cors', but fallback just in case
+        document.getElementById('statusMessage').textContent = "⚠️ Something went wrong. Please try again.";
       }
     });
   </script>
