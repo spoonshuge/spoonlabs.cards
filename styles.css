@@ -239,33 +239,33 @@ footer {
 }
 
 .announcement {
-    text-align: center;
-    padding: 20px;
-    background-color: #f8f8f8; /* Light grey background */
-    margin: 20px auto; /* Centering the div */
-    width: 80%; /* Taking 80% of the content area */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Soft shadow around the block */
-    border-radius: 10px; /* Rounded corners */
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8; /* Light grey background */
+  margin: 20px auto;         /* Centering the div */
+  width: 80%;                /* Taking 80% of the content area */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .about-section {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .about-section .text {
-      max-width: 100%;
+    max-width: 100%;
   }
 
   .about-section img {
-      max-width: 80%;
-      margin: 1rem 0;
+    max-width: 80%;
+    margin: 1rem 0;
   }
+} /* ← close media-query here */
 
- /* === Giveaway form styles === */
-
+/* === Giveaway form styles === */
 main form {
   max-width: 600px;
   margin: 0 auto;
@@ -303,6 +303,4 @@ main form button {
 
 main form button:hover {
   background-color: #45a049;
-}
-
 }
