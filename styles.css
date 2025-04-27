@@ -47,6 +47,7 @@ nav {
   background-color: #444;
   padding: 0.75rem 1rem;
   text-align: center;
+  text-decoration: none;
 }
 
 nav a {
@@ -56,6 +57,7 @@ nav a {
   margin: 0 1.5rem;
   font-weight: bold;
   font-size: 1.1rem;
+  text-decoration: none;
   padding: 0.5rem 1rem;
   display: inline-block; /* Ensure links are treated as block-level elements inline */
   transition: background-color 0.3s ease, border-radius 0.3s ease;
