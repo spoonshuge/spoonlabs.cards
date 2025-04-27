@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>spoonLabs Giveaway Leaderboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="background"></div>
+
+  <header>
+    <div class="header-content">
+      <a href="/index.html">
+        <img src="/images/spoonLabsHeader.png" alt="spoonLabs Logo" class="header-logo">
+      </a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="/inventory.html">Inventory</a>
+    <a href="/giveaway/index.html">Giveaway</a>
+    <a href="/giveaway/leaderboard.html" class="active">Leaderboard</a>
+    <a href="/about.html">About</a>
+  </nav>
+
+  <main>
+    <h1>Giveaway Leaderboard</h1>
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Display Name</th>
+          <th>Entries</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-body">
+        <tr><td colspan="3">Loading…</td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>© 2025 spoonLabs. All rights reserved.</p>
+  </footer>
+
+  <script src="/giveaway/leaderboard.js"></script>
+</body>
+</html>
