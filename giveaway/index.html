@@ -4,126 +4,125 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>spoonLabs Giveaway Entry</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: auto;
-      padding: 2rem;
-    }
-    label {
-      display: block;
-      margin-top: 1rem;
-    }
-    input, select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 0.5rem;
-    }
-    .hidden {
-      display: none;
-    }
-    button {
-      margin-top: 1.5rem;
-      padding: 10px 20px;
-    }
-  </style>
+  <!-- Global stylesheet (root-relative) -->
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <h1>spoonLabs Giveaway Entry Version 1.0.7</h1>
-  <form id="entryForm">
-    <label>Name
-      <input type="text" name="name" required />
-    </label>
+  <div class="background"></div>
 
-    <label>Display Name (shown on leaderboard)
-      <input type="text" name="displayName" required />
-    </label>
-
-    <label>Preferred Contact Method
-      <select name="contactMethod" id="contactMethod" required>
-        <option value="">Select one</option>
-        <option value="Email">Email</option>
-        <option value="Phone">Phone</option>
-        <option value="Instagram">Instagram</option>
-      </select>
-    </label>
-
-    <div id="emailField" class="hidden">
-      <label>Email
-        <input type="email" name="email" />
-      </label>
+  <header>
+    <div class="header-content">
+      <a href="/index.html">
+        <img src="/images/spoonLabsHeader.png" alt="spoonLabs Logo" class="header-logo">
+      </a>
     </div>
-    <div id="phoneField" class="hidden">
-      <label>Phone
-        <input type="tel" name="phone" />
+  </header>
+
+  <nav>
+    <a href="/inventory.html">Inventory</a>
+    <a href="/giveaway/index.html">Giveaway</a>
+    <a href="https://www.ebay.com/usr/spoonlabs" target="_blank" rel="noopener">eBay</a>
+    <a href="https://www.whatnot.com/user/spoonlabs/shop" target="_blank" rel="noopener">whatnot</a>
+    <a href="https://www.instagram.com/spoonlabs/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@spoonlabs" target="_blank" rel="noopener">TikTok</a>
+    <a href="/about.html">About</a>
+  </nav>
+
+  <main>
+    <h1>spoonLabs Giveaway Entry Version 1.0.7</h1>
+    <form id="entryForm">
+      <label>Name
+        <input type="text" name="name" required />
       </label>
-    </div>
-    <div id="instagramField" class="hidden">
-      <label>Instagram Handle
-        <input type="text" name="instagram" />
+      <label>Display Name (shown on leaderboard)
+        <input type="text" name="displayName" required />
       </label>
-    </div>
+      <label>Preferred Contact Method
+        <select name="contactMethod" id="contactMethod" required>
+          <option value="">Select one</option>
+          <option value="Email">Email</option>
+          <option value="Phone">Phone</option>
+          <option value="Instagram">Instagram</option>
+        </select>
+      </label>
 
-    <input type="hidden" name="code" id="codeInput" />
-    <input type="hidden" name="entries" id="entriesInput" />
+      <div id="emailField" class="hidden">
+        <label>Email
+          <input type="email" name="email" />
+        </label>
+      </div>
+      <div id="phoneField" class="hidden">
+        <label>Phone
+          <input type="tel" name="phone" />
+        </label>
+      </div>
+      <div id="instagramField" class="hidden">
+        <label>Instagram Handle
+          <input type="text" name="instagram" />
+        </label>
+      </div>
 
-    <button type="submit">Submit Entry</button>
-  </form>
+      <input type="hidden" name="code" id="codeInput" />
+      <input type="hidden" name="entries" id="entriesInput" />
+      <button type="submit">Submit Entry</button>
+    </form>
 
-  <p id="statusMessage"></p>
+    <p id="statusMessage"></p>
+  </main>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  document.getElementById('codeInput').value = params.get('code') || '';
-  document.getElementById('entriesInput').value = params.get('entries') || '1';
+  <footer>
+    <p>© 2025 spoonLabs. All rights reserved.</p>
+  </footer>
 
-  const contactSelect = document.getElementById('contactMethod');
-  const emailField = document.getElementById('emailField');
-  const phoneField = document.getElementById('phoneField');
-  const instagramField = document.getElementById('instagramField');
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById('codeInput').value = params.get('code') || '';
+      document.getElementById('entriesInput').value = params.get('entries') || '1';
 
-  contactSelect.addEventListener('change', () => {
-    emailField.classList.add('hidden');
-    phoneField.classList.add('hidden');
-    instagramField.classList.add('hidden');
+      const contactSelect = document.getElementById('contactMethod');
+      const emailField    = document.getElementById('emailField');
+      const phoneField    = document.getElementById('phoneField');
+      const instagramField= document.getElementById('instagramField');
 
-    if (contactSelect.value === 'Email') emailField.classList.remove('hidden');
-    if (contactSelect.value === 'Phone') phoneField.classList.remove('hidden');
-    if (contactSelect.value === 'Instagram') instagramField.classList.remove('hidden');
-  });
-
-  document.getElementById('entryForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const data = Object.fromEntries(new FormData(form));
-
-    // Minimal validation
-    if ((data.contactMethod === 'Email' && !data.email) ||
-        (data.contactMethod === 'Phone' && !data.phone) ||
-        (data.contactMethod === 'Instagram' && !data.instagram)) {
-      document.getElementById('statusMessage').textContent = `Please fill out your ${data.contactMethod} info.`;
-      return;
-    }
-
-    try {
-      await fetch('https://script.google.com/macros/s/AKfycbxcgbdqWfxMVZXif8ltYPSUQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+      contactSelect.addEventListener('change', () => {
+        emailField.classList.add('hidden');
+        phoneField.classList.add('hidden');
+        instagramField.classList.add('hidden');
+        if (contactSelect.value === 'Email')     emailField.classList.remove('hidden');
+        if (contactSelect.value === 'Phone')     phoneField.classList.remove('hidden');
+        if (contactSelect.value === 'Instagram') instagramField.classList.remove('hidden');
       });
 
-      document.getElementById('statusMessage').textContent = "✅ Entry submitted! Good luck!";
-      form.reset();
-    } catch (err) {
-      document.getElementById('statusMessage').textContent = "⚠️ Something went wrong. Please try again.";
-    }
-  });
-});
-</script>
+      document.getElementById('entryForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target));
+
+        if ((data.contactMethod === 'Email' && !data.email) ||
+            (data.contactMethod === 'Phone' && !data.phone) ||
+            (data.contactMethod === 'Instagram' && !data.instagram)) {
+          document.getElementById('statusMessage').textContent =
+            `Please fill out your ${data.contactMethod} info.`;
+          return;
+        }
+
+        try {
+          await fetch(
+            'https://script.google.com/macros/s/AKfycbxcgbdqWfxMVZXif8ltYPSUQr35Tn29_KMxijd9xX_hAjJMDufVXBTbyWi6teUKrsil/exec',
+            { method: 'POST', mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            }
+          );
+          document.getElementById('statusMessage').textContent =
+            "✅ Entry submitted! Good luck!";
+          e.target.reset();
+        } catch {
+          document.getElementById('statusMessage').textContent =
+            "⚠️ Something went wrong. Please try again.";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
