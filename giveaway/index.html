@@ -32,44 +32,46 @@
 
   <main>
     <h1>spoonLabs Giveaway Entry Version 1.0.7</h1>
-    <form id="entryForm">
-      <label>Name
-        <input type="text" name="name" required />
-      </label>
-      <label>Display Name (shown on leaderboard)
-        <input type="text" name="displayName" required />
-      </label>
-      <label>Preferred Contact Method
-        <select name="contactMethod" id="contactMethod" required>
-          <option value="">Select one</option>
-          <option value="Email">Email</option>
-          <option value="Phone">Phone</option>
-          <option value="Instagram">Instagram</option>
-        </select>
-      </label>
-
-      <div id="emailField" class="hidden">
-        <label>Email
-          <input type="email" name="email" />
+    <div class="blog-entry">
+      <form id="entryForm">
+        <label>Name
+          <input type="text" name="name" required />
         </label>
-      </div>
-      <div id="phoneField" class="hidden">
-        <label>Phone
-          <input type="tel" name="phone" />
+        <label>Display Name (shown on leaderboard)
+          <input type="text" name="displayName" required />
         </label>
-      </div>
-      <div id="instagramField" class="hidden">
-        <label>Instagram Handle
-          <input type="text" name="instagram" />
+        <label>Preferred Contact Method
+          <select name="contactMethod" id="contactMethod" required>
+            <option value="">Select one</option>
+            <option value="Email">Email</option>
+            <option value="Phone">Phone</option>
+            <option value="Instagram">Instagram</option>
+          </select>
         </label>
-      </div>
-
-      <input type="hidden" name="code" id="codeInput" />
-      <input type="hidden" name="entries" id="entriesInput" />
-      <button type="submit">Submit Entry</button>
-    </form>
-
-    <p id="statusMessage"></p>
+  
+        <div id="emailField" class="hidden">
+          <label>Email
+            <input type="email" name="email" />
+          </label>
+        </div>
+        <div id="phoneField" class="hidden">
+          <label>Phone
+            <input type="tel" name="phone" />
+          </label>
+        </div>
+        <div id="instagramField" class="hidden">
+          <label>Instagram Handle
+            <input type="text" name="instagram" />
+          </label>
+        </div>
+  
+        <input type="hidden" name="code" id="codeInput" />
+        <input type="hidden" name="entries" id="entriesInput" />
+        <button type="submit">Submit Entry</button>
+      </form>
+  
+      <p id="statusMessage"></p>
+    <div class="blog-entry">
   </main>
 
   <footer>
