@@ -328,3 +328,15 @@ main form button {
 main form button:hover {
   background-color: #45a049;
 }
+
+/* === Box wrapper for forms/tables (like blog cards) === */
+.blog-entry {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: rgba(22, 84, 4, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 80%;
+  max-width: 800px;
+}
