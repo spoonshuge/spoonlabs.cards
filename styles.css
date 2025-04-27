@@ -1,5 +1,4 @@
 /* General styles */
-/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -300,6 +299,29 @@ main form button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* === Leaderboard table styles === */
+.leaderboard-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e1e1e1;
+  text-align: left;
+}
+.leaderboard-table th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+}
+.leaderboard-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
 
 main form button:hover {
   background-color: #45a049;
