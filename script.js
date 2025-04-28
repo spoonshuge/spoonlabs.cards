@@ -1,3 +1,27 @@
+fetch('nav.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('main-nav').innerHTML = data;
+  });
+
+  // inventory.html nav
+  if (document.getElementById('main-nav')) {
+    fetch('../nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('main-nav').innerHTML = data;
+      });
+  }
+
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('main-nav');
+
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  }
+
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSb9Zpo5dnvCaVC0xS4tz6eWjv-fbT3ryuJuVAnypu2gBys3t_Djn3otlmHHjdTKJ5K-iXgLWQDcB3B/pub?gid=0&single=true&output=csv";
 
 fetch(sheetURL)
